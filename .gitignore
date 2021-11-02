@@ -30,6 +30,7 @@ DerivedData/
 *.dSYM.zip
 *.dSYM
 
+## removing DS_Store
 **/.DS_Store
 
 ## Playgrounds
