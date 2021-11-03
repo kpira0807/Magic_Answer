@@ -1,0 +1,6 @@
+framework module Pods_MagicAnswer {
+  umbrella header "Pods-MagicAnswer-umbrella.h"
+
+  export *
+  module * { export * }
+}
