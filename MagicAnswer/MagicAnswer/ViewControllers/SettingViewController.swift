@@ -1,17 +1,9 @@
-//
-//  SettingViewController.swift
-//  MagicAnswer
-//
-//  Created by Iryna Kopchynska on 29.09.2021.
-//  Copyright © 2021 Iryna Kopchynska. All rights reserved.
-//
-
 import UIKit
 
 class SettingViewController: UIViewController {
     
     @IBOutlet weak var chooseFirstHardcodeAnswer: UITextField!
-    @IBOutlet weak var presenFirsttLabel: UILabel!
+    @IBOutlet weak var presentFirstLabel: UILabel!
     @IBOutlet weak var backgroundFirstView: CustomViewBackground!
     
     @IBOutlet weak var chooseSecondHardcodeAnswer: UITextField!
@@ -40,18 +32,18 @@ class SettingViewController: UIViewController {
         chooseThirdPickerView.dataSource = self
         
         chooseFirstHardcodeAnswer.inputView = chooseFirstPickerView
-        chooseFirstHardcodeAnswer.text = answers.positiveAnswers[0]
-        UserDefaults.standard.set(answers.positiveAnswers[0], forKey: "answer")
+        chooseFirstHardcodeAnswer.text = answers.firstArrayAnswers[0]
+        UserDefaults.standard.set(answers.firstArrayAnswers[0], forKey: "answer")
         
         chooseSecondHardcodeAnswer.inputView = chooseSecondPickerView
-        chooseSecondHardcodeAnswer.text = answers.normalAnswers[0]
-        UserDefaults.standard.set(answers.normalAnswers[0], forKey: "answer")
+        chooseSecondHardcodeAnswer.text = answers.secondArrayAnswers[0]
+        UserDefaults.standard.set(answers.secondArrayAnswers[0], forKey: "answer")
         
         chooseThirdHardcodeAnswer.inputView = chooseThirdPickerView
-        chooseThirdHardcodeAnswer.text = answers.negativeAnswers[0]
-        UserDefaults.standard.set(answers.negativeAnswers[0], forKey: "answer")
+        chooseThirdHardcodeAnswer.text = answers.thirdArrayAnswers[0]
+        UserDefaults.standard.set(answers.thirdArrayAnswers[0], forKey: "answer")
         
-        presenFirsttLabel.textColor = .whiteColor
+        presentFirstLabel.textColor = .whiteColor
         presentSecondLabel.textColor = .whiteColor
         presentThirdLabel.textColor = .whiteColor
     }
@@ -65,41 +57,37 @@ extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == chooseFirstPickerView {
-            return answers.positiveAnswers.count
+            return answers.firstArrayAnswers.count
         } else if pickerView == chooseSecondPickerView {
-            return answers.normalAnswers.count
+            return answers.secondArrayAnswers.count
         } else if pickerView == chooseThirdPickerView {
-            return answers.negativeAnswers.count
+            return answers.thirdArrayAnswers.count
         }
-        
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == chooseFirstPickerView {
-            return answers.positiveAnswers[row]
+            return answers.firstArrayAnswers[row]
         } else if pickerView == chooseSecondPickerView {
-            return answers.normalAnswers[row]
+            return answers.secondArrayAnswers[row]
         } else if pickerView == chooseThirdPickerView {
-            return answers.negativeAnswers[row]
+            return answers.thirdArrayAnswers[row]
         }
         return ""
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == chooseFirstPickerView {
-            chooseFirstHardcodeAnswer.text = answers.positiveAnswers[row]
+            chooseFirstHardcodeAnswer.text = answers.firstArrayAnswers[row]
         } else if pickerView == chooseSecondPickerView {
-            chooseSecondHardcodeAnswer.text = answers.normalAnswers[row]
+            chooseSecondHardcodeAnswer.text = answers.secondArrayAnswers[row]
         } else if pickerView == chooseThirdPickerView {
-            chooseThirdHardcodeAnswer.text = answers.negativeAnswers[row]
+            chooseThirdHardcodeAnswer.text = answers.thirdArrayAnswers[row]
         }
-        
         let array = [chooseFirstHardcodeAnswer.text, chooseSecondHardcodeAnswer.text, chooseThirdHardcodeAnswer.text]
-        
         print(array)
         UserDefaults.standard.set(array, forKey: "answer")
         self.view.endEditing(false)
-        
     }
 }

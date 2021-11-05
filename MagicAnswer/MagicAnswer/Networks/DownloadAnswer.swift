@@ -1,11 +1,3 @@
-//
-//  DownloadAnswer.swift
-//  MagicAnswer
-//
-//  Created by Iryna Kopchynska on 29.09.2021.
-//  Copyright © 2021 Iryna Kopchynska. All rights reserved.
-//
-
 import Foundation
 
 class DownloadAnswer {
@@ -23,8 +15,6 @@ class DownloadAnswer {
                 let rundomAnswer = answers?.randomElement() ?? "Some default answer"
 
                 self.sendingData(data: rundomAnswer as! String)
-                
-        //        self.sendingData(data: UserDefaults.standard.string(forKey: "answer")!)
             }
             guard let data = data else { return }
             do {
@@ -40,5 +30,4 @@ class DownloadAnswer {
     func sendingData(data: String) {
         NotificationCenter.default.post(name: Notification.Name("didReceiveData"), object: data)
     }
-    
 }
