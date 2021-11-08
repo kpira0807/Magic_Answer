@@ -2,18 +2,28 @@ import UIKit
 
 class AnswerViewController: UIViewController {
     
-    @IBOutlet var questionTextField: UITextField!
-    @IBOutlet var answerLabel: CustomLabel!
-    @IBOutlet var settingButton: UIBarButtonItem!
+    @IBOutlet private weak var questionTextField: UITextField!
+    @IBOutlet private weak var  answerLabel: CustomLabel!
     
-    var downloadAnswer = DownloadAnswer()
+    private let answerManager: AnswerManagerProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         answerLabel.text = "Shake!"
         
-        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: Notification.Name("didReceiveData"), object: nil)
+        let settingButton = UIBarButtonItem.init(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(openSettingScreen))
+        self.navigationItem.rightBarButtonItem  = settingButton
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+    }
+    
+    init?(coder: NSCoder, answerManager: AnswerManagerProtocol = AnswerManager()) {
+        self.answerManager = answerManager
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private enum LocalConstant {
@@ -27,15 +37,24 @@ class AnswerViewController: UIViewController {
             showError(with: ErrorType.emptyField)
         } else {
             if motion == .motionShake {
-                downloadAnswer.getQuestionResponse()
+                answerManager.getRandomAnswer{ [weak self] answer in
+                    self?.updateAnswerLabel(answer)
+                }
             }
         }
     }
     
-    @objc func onDidReceiveData(_ notification: Notification) {
+    private func updateAnswerLabel(_ answer: String) {
         DispatchQueue.main.async {
-            self.answerLabel.text = notification.object as? String
+            self.answerLabel.text = answer
         }
+    }
+    
+    @objc private func openSettingScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let vc = storyboard.instantiateViewController(identifier: "SettingViewController", creator: {coder -> SettingViewController? in SettingViewController.init(coder: coder, answers: HardcodedAnswers(), storage: AnswerStorage())
+        })
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func showError(with type: ErrorType) {

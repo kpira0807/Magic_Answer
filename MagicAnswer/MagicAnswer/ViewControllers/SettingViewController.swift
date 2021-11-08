@@ -2,22 +2,34 @@ import UIKit
 
 class SettingViewController: UIViewController {
     
-    @IBOutlet weak var chooseFirstHardcodeAnswer: UITextField!
-    @IBOutlet weak var presentFirstLabel: UILabel!
-    @IBOutlet weak var backgroundFirstView: CustomViewBackground!
+    @IBOutlet private weak var chooseFirstHardcodeAnswer: UITextField!
+    @IBOutlet private weak var presentFirstLabel: UILabel!
+    @IBOutlet private weak var backgroundFirstView: CustomViewBackground!
     
-    @IBOutlet weak var chooseSecondHardcodeAnswer: UITextField!
-    @IBOutlet weak var presentSecondLabel: UILabel!
-    @IBOutlet weak var backgroundSecondView: CustomViewBackground!
+    @IBOutlet private weak var chooseSecondHardcodeAnswer: UITextField!
+    @IBOutlet private weak var presentSecondLabel: UILabel!
+    @IBOutlet private weak var backgroundSecondView: CustomViewBackground!
     
-    @IBOutlet weak var chooseThirdHardcodeAnswer: UITextField!
-    @IBOutlet weak var presentThirdLabel: UILabel!
-    @IBOutlet weak var backgroundThirdView: CustomViewBackground!
+    @IBOutlet private weak var chooseThirdHardcodeAnswer: UITextField!
+    @IBOutlet private weak var presentThirdLabel: UILabel!
+    @IBOutlet private weak var backgroundThirdView: CustomViewBackground!
     
-    let answers = HardcodedAnswers()
-    let chooseFirstPickerView = UIPickerView()
-    let chooseSecondPickerView = UIPickerView()
-    let chooseThirdPickerView = UIPickerView()
+    private let answers: HardcodedAnswers
+    private let storage: AnswerStorageProtocol
+    
+    init?(coder: NSCoder, answers: HardcodedAnswers = HardcodedAnswers(), storage: AnswerStorageProtocol = AnswerStorage()) {
+        self.answers = answers
+        self.storage = storage
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private let chooseFirstPickerView = UIPickerView()
+    private let chooseSecondPickerView = UIPickerView()
+    private let chooseThirdPickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,20 +44,26 @@ class SettingViewController: UIViewController {
         chooseThirdPickerView.dataSource = self
         
         chooseFirstHardcodeAnswer.inputView = chooseFirstPickerView
-        chooseFirstHardcodeAnswer.text = answers.firstArrayAnswers[0]
-        UserDefaults.standard.set(answers.firstArrayAnswers[0], forKey: "answer")
+        let answerFirst = answers.firstArrayAnswers[0]
+        chooseFirstHardcodeAnswer.text = answerFirst
         
         chooseSecondHardcodeAnswer.inputView = chooseSecondPickerView
-        chooseSecondHardcodeAnswer.text = answers.secondArrayAnswers[0]
-        UserDefaults.standard.set(answers.secondArrayAnswers[0], forKey: "answer")
+        let answerSecond = answers.secondArrayAnswers[0]
+        chooseSecondHardcodeAnswer.text = answerSecond
         
         chooseThirdHardcodeAnswer.inputView = chooseThirdPickerView
-        chooseThirdHardcodeAnswer.text = answers.thirdArrayAnswers[0]
-        UserDefaults.standard.set(answers.thirdArrayAnswers[0], forKey: "answer")
+        let answerThird = answers.thirdArrayAnswers[0]
+        chooseThirdHardcodeAnswer.text = answerThird
+        
+        saveUserAnswer([answerFirst, answerSecond, answerThird])
         
         presentFirstLabel.textColor = .whiteColor
         presentSecondLabel.textColor = .whiteColor
         presentThirdLabel.textColor = .whiteColor
+    }
+    
+    private func saveUserAnswer(_ answers: [String]) {
+        storage.saveAnswer(answers)
     }
 }
 
@@ -85,9 +103,9 @@ extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         } else if pickerView == chooseThirdPickerView {
             chooseThirdHardcodeAnswer.text = answers.thirdArrayAnswers[row]
         }
-        let array = [chooseFirstHardcodeAnswer.text, chooseSecondHardcodeAnswer.text, chooseThirdHardcodeAnswer.text]
+        let array = [chooseFirstHardcodeAnswer.text!, chooseSecondHardcodeAnswer.text!, chooseThirdHardcodeAnswer.text!]
         print(array)
-        UserDefaults.standard.set(array, forKey: "answer")
+        saveUserAnswer(array)
         self.view.endEditing(false)
     }
 }
