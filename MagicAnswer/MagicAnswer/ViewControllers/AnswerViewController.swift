@@ -50,7 +50,7 @@ class AnswerViewController: UIViewController {
         }
     }
     
-    @objc private func openSettingScreen() {
+    @objc func openSettingScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let vc = storyboard.instantiateViewController(identifier: "SettingViewController", creator: {coder -> SettingViewController? in SettingViewController.init(coder: coder, answers: HardcodedAnswers(), storage: AnswerStorage())
         })

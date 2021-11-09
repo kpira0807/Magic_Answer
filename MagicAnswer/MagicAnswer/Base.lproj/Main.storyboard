@@ -179,12 +179,12 @@ You can choose answers and play offline!</string>
                         <outlet property="backgroundFirstView" destination="pgb-vF-PRk" id="nAG-9F-cct"/>
                         <outlet property="backgroundSecondView" destination="tkq-RI-sir" id="cdh-Wl-KlY"/>
                         <outlet property="backgroundThirdView" destination="ZBc-7C-sXj" id="b7v-30-xT5"/>
-                        <outlet property="chooseFirstHardcodeAnswer" destination="RqH-iH-6n6" id="XRX-mq-MWL"/>
-                        <outlet property="chooseSecondHardcodeAnswer" destination="RXx-93-eWS" id="tey-2b-ysI"/>
-                        <outlet property="chooseThirdHardcodeAnswer" destination="Gt2-pB-IkN" id="l9B-OK-Xxi"/>
+                        <outlet property="firstHardcodeAnswerTextField" destination="RqH-iH-6n6" id="XRX-mq-MWL"/>
                         <outlet property="presentFirstLabel" destination="xML-dh-Rqx" id="fEl-f1-arl"/>
                         <outlet property="presentSecondLabel" destination="3um-lU-xJH" id="Oq7-Kd-ScP"/>
                         <outlet property="presentThirdLabel" destination="0Zv-zl-Jav" id="v73-Ex-eQm"/>
+                        <outlet property="secondHardcodeAnswerTextField" destination="RXx-93-eWS" id="tey-2b-ysI"/>
+                        <outlet property="thirdHardcodeAnswerTextField" destination="Gt2-pB-IkN" id="l9B-OK-Xxi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OW5-PM-wrk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
