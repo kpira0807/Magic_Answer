@@ -6,4 +6,3 @@ struct HardcodedAnswers {
     let thirdArrayAnswers = ["I do not know", "Ask another time!", "It's impossible!", "NO!"]
     let defaultRandomAnswer = "Just do it!"
 }
-

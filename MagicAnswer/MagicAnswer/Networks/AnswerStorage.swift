@@ -6,13 +6,13 @@ protocol AnswerStorageProtocol {
 }
 
 final class AnswerStorage: AnswerStorageProtocol {
-    
+
     private let userDefaultsAnswerKey = "answer"
-    
+
     func saveAnswer(_ answer: [String]) {
         UserDefaults.standard.set(answer, forKey: userDefaultsAnswerKey)
     }
-    
+
     func getAnswer() -> [String]? {
         guard let answer = UserDefaults.standard.array(forKey: userDefaultsAnswerKey) as? [String] else {
             return nil
@@ -20,4 +20,3 @@ final class AnswerStorage: AnswerStorageProtocol {
         return answer
     }
 }
-
