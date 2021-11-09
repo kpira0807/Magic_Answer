@@ -2,50 +2,68 @@ import UIKit
 
 class SettingViewController: UIViewController {
     
-    @IBOutlet weak var chooseFirstHardcodeAnswer: UITextField!
-    @IBOutlet weak var presentFirstLabel: UILabel!
-    @IBOutlet weak var backgroundFirstView: CustomViewBackground!
+    @IBOutlet private weak var firstHardcodeAnswerTextField: UITextField!
+    @IBOutlet private weak var presentFirstLabel: UILabel!
+    @IBOutlet private weak var backgroundFirstView: CustomViewBackground!
     
-    @IBOutlet weak var chooseSecondHardcodeAnswer: UITextField!
-    @IBOutlet weak var presentSecondLabel: UILabel!
-    @IBOutlet weak var backgroundSecondView: CustomViewBackground!
+    @IBOutlet private weak var secondHardcodeAnswerTextField: UITextField!
+    @IBOutlet private weak var presentSecondLabel: UILabel!
+    @IBOutlet private weak var backgroundSecondView: CustomViewBackground!
     
-    @IBOutlet weak var chooseThirdHardcodeAnswer: UITextField!
-    @IBOutlet weak var presentThirdLabel: UILabel!
-    @IBOutlet weak var backgroundThirdView: CustomViewBackground!
+    @IBOutlet private weak var thirdHardcodeAnswerTextField: UITextField!
+    @IBOutlet private weak var presentThirdLabel: UILabel!
+    @IBOutlet private weak var backgroundThirdView: CustomViewBackground!
     
-    let answers = HardcodedAnswers()
-    let chooseFirstPickerView = UIPickerView()
-    let chooseSecondPickerView = UIPickerView()
-    let chooseThirdPickerView = UIPickerView()
+    private let answers: HardcodedAnswers
+    private let storage: AnswerStorageProtocol
+    
+    private let firstPickerView = UIPickerView()
+    private let secondPickerView = UIPickerView()
+    private let thirdPickerView = UIPickerView()
+    
+    init?(coder: NSCoder, answers: HardcodedAnswers = HardcodedAnswers(), storage: AnswerStorageProtocol = AnswerStorage()) {
+        self.answers = answers
+        self.storage = storage
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        chooseFirstPickerView.delegate = self
-        chooseFirstPickerView.dataSource = self
+        firstPickerView.delegate = self
+        firstPickerView.dataSource = self
         
-        chooseSecondPickerView.delegate = self
-        chooseSecondPickerView.dataSource = self
+        secondPickerView.delegate = self
+        secondPickerView.dataSource = self
         
-        chooseThirdPickerView.delegate = self
-        chooseThirdPickerView.dataSource = self
+        thirdPickerView.delegate = self
+        thirdPickerView.dataSource = self
         
-        chooseFirstHardcodeAnswer.inputView = chooseFirstPickerView
-        chooseFirstHardcodeAnswer.text = answers.firstArrayAnswers[0]
-        UserDefaults.standard.set(answers.firstArrayAnswers[0], forKey: "answer")
+        firstHardcodeAnswerTextField.inputView = firstPickerView
+        let answerFirst = answers.firstArrayAnswers[0]
+        firstHardcodeAnswerTextField.text = answerFirst
         
-        chooseSecondHardcodeAnswer.inputView = chooseSecondPickerView
-        chooseSecondHardcodeAnswer.text = answers.secondArrayAnswers[0]
-        UserDefaults.standard.set(answers.secondArrayAnswers[0], forKey: "answer")
+        secondHardcodeAnswerTextField.inputView = secondPickerView
+        let answerSecond = answers.secondArrayAnswers[0]
+        secondHardcodeAnswerTextField.text = answerSecond
         
-        chooseThirdHardcodeAnswer.inputView = chooseThirdPickerView
-        chooseThirdHardcodeAnswer.text = answers.thirdArrayAnswers[0]
-        UserDefaults.standard.set(answers.thirdArrayAnswers[0], forKey: "answer")
+        thirdHardcodeAnswerTextField.inputView = thirdPickerView
+        let answerThird = answers.thirdArrayAnswers[0]
+        thirdHardcodeAnswerTextField.text = answerThird
+        
+        saveUserAnswer([answerFirst, answerSecond, answerThird])
         
         presentFirstLabel.textColor = .whiteColor
         presentSecondLabel.textColor = .whiteColor
         presentThirdLabel.textColor = .whiteColor
+    }
+    
+    private func saveUserAnswer(_ answers: [String]) {
+        storage.saveAnswer(answers)
     }
 }
 
@@ -56,38 +74,38 @@ extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == chooseFirstPickerView {
+        if pickerView == firstPickerView {
             return answers.firstArrayAnswers.count
-        } else if pickerView == chooseSecondPickerView {
+        } else if pickerView == secondPickerView {
             return answers.secondArrayAnswers.count
-        } else if pickerView == chooseThirdPickerView {
+        } else if pickerView == thirdPickerView {
             return answers.thirdArrayAnswers.count
         }
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == chooseFirstPickerView {
+        if pickerView == firstPickerView {
             return answers.firstArrayAnswers[row]
-        } else if pickerView == chooseSecondPickerView {
+        } else if pickerView == secondPickerView {
             return answers.secondArrayAnswers[row]
-        } else if pickerView == chooseThirdPickerView {
+        } else if pickerView == thirdPickerView {
             return answers.thirdArrayAnswers[row]
         }
         return ""
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == chooseFirstPickerView {
-            chooseFirstHardcodeAnswer.text = answers.firstArrayAnswers[row]
-        } else if pickerView == chooseSecondPickerView {
-            chooseSecondHardcodeAnswer.text = answers.secondArrayAnswers[row]
-        } else if pickerView == chooseThirdPickerView {
-            chooseThirdHardcodeAnswer.text = answers.thirdArrayAnswers[row]
+        if pickerView == firstPickerView {
+            firstHardcodeAnswerTextField.text = answers.firstArrayAnswers[row]
+        } else if pickerView == secondPickerView {
+            secondHardcodeAnswerTextField.text = answers.secondArrayAnswers[row]
+        } else if pickerView == thirdPickerView {
+            thirdHardcodeAnswerTextField.text = answers.thirdArrayAnswers[row]
         }
-        let array = [chooseFirstHardcodeAnswer.text, chooseSecondHardcodeAnswer.text, chooseThirdHardcodeAnswer.text]
+        let array = [firstHardcodeAnswerTextField.text!, secondHardcodeAnswerTextField.text!, thirdHardcodeAnswerTextField.text!]
         print(array)
-        UserDefaults.standard.set(array, forKey: "answer")
+        saveUserAnswer(array)
         self.view.endEditing(false)
     }
 }
