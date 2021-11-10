@@ -10,7 +10,7 @@ class AnswerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        answerLabel.text = "Shake!"
+        answerLabel.text = L10n.answerLaber
 
         let settingButton = UIBarButtonItem.init(image: UIImage(systemName: "gear"),
                                                  style: .plain, target: self,

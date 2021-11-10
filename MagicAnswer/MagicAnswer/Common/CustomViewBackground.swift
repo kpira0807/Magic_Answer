@@ -10,7 +10,7 @@ class CustomViewBackground: UIView {
 
     func createBorder() {
         self.layer.cornerRadius = 10
-        self.backgroundColor = UIColor.blueColor
+        self.backgroundColor =  UIColor(asset: Asset.newBlue)
         self.clipsToBounds = true
     }
 }

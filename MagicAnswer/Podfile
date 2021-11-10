@@ -7,5 +7,6 @@ target 'MagicAnswer' do
 
   # Pods for MagicAnswer
 pod 'SwiftLint'
+pod 'SwiftGen', '~> 6.0'
 
 end

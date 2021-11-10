@@ -9,7 +9,7 @@ class CustomLabel: UILabel {
     }
 
     func newTextLabel() {
-        self.textColor = UIColor.whiteColor
+        self.textColor = UIColor(asset: Asset.newWhite)
         self.clipsToBounds = true
     }
 }
