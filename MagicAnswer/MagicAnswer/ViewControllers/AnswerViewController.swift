@@ -64,8 +64,8 @@ class AnswerViewController: UIViewController {
     }
 
     func showError(with type: ErrorType) {
-        let myAlert = UIAlertController(title: "Error", message: type.rawValue, preferredStyle: .alert)
-        let okeyAction = UIAlertAction(title: "Okey", style: .default, handler: nil)
+        let myAlert = UIAlertController(title: L10n.errorAlert, message: type.rawValue, preferredStyle: .alert)
+        let okeyAction = UIAlertAction(title: L10n.okeyAlert, style: .default, handler: nil)
         myAlert.addAction(okeyAction)
         self.present(myAlert, animated: true, completion: nil)
     }

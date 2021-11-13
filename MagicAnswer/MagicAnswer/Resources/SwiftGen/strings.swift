@@ -12,6 +12,10 @@ import Foundation
 internal enum L10n {
   /// Shake!
   internal static let answerLaber = L10n.tr("Localizable", "answerLaber")
+  /// Error
+  internal static let errorAlert = L10n.tr("Localizable", "errorAlert")
+  /// Okey
+  internal static let okeyAlert = L10n.tr("Localizable", "okeyAlert")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

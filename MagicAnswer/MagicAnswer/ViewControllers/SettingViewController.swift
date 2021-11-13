@@ -58,9 +58,9 @@ class SettingViewController: UIViewController {
 
         saveUserAnswer([answerFirst, answerSecond, answerThird])
 
-        presentFirstLabel.textColor = UIColor(asset: Asset.newWhite)
-        presentSecondLabel.textColor = UIColor(asset: Asset.newWhite)
-        presentThirdLabel.textColor = UIColor(asset: Asset.newWhite)
+        presentFirstLabel.textColor =  Asset.newWhite.color
+        presentSecondLabel.textColor = Asset.newWhite.color
+        presentThirdLabel.textColor = Asset.newWhite.color
     }
 
     private func saveUserAnswer(_ answers: [String]) {

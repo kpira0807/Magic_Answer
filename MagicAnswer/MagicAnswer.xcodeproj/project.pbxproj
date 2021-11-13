@@ -114,6 +114,16 @@
 			path = SwiftGen;
 			sourceTree = "<group>";
 		};
+		12F300542740135B00DC5C51 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				12905B19273C3A85001F9053 /* Localizable.strings */,
+				12FAE73B2701B76F00A47323 /* Assets.xcassets */,
+				12905B02273C330D001F9053 /* SwiftGen */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		12FAE7262701B74E00A47323 = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +146,7 @@
 		12FAE7312701B74E00A47323 /* MagicAnswer */ = {
 			isa = PBXGroup;
 			children = (
-				12905B02273C330D001F9053 /* SwiftGen */,
+				12F300542740135B00DC5C51 /* Resources */,
 				1272E45B2709F4B1004C4282 /* Common */,
 				1272E45A2709F498004C4282 /* Networks */,
 				1272E4592709F45E004C4282 /* Models */,
@@ -144,10 +154,8 @@
 				12FAE7322701B74E00A47323 /* AppDelegate.swift */,
 				12FAE7342701B74E00A47323 /* SceneDelegate.swift */,
 				12FAE7382701B74E00A47323 /* Main.storyboard */,
-				12FAE73B2701B76F00A47323 /* Assets.xcassets */,
 				12FAE73D2701B76F00A47323 /* LaunchScreen.storyboard */,
 				12FAE7402701B76F00A47323 /* Info.plist */,
-				12905B19273C3A85001F9053 /* Localizable.strings */,
 			);
 			path = MagicAnswer;
 			sourceTree = "<group>";
