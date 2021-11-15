@@ -10,7 +10,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            let vc = storyboard.instantiateViewController(identifier: "AnswerViewController", creator: {coder -> AnswerViewController? in AnswerViewController.init(coder: coder, answerManager: AnswerManager())
+            let vc = storyboard.instantiateViewController(identifier: "AnswerViewController", creator: {coder -> AnswerViewController? in AnswerViewController.init(coder: coder, viewModel: AnswerViewModel())
             })
             
             window.rootViewController = UINavigationController.init(rootViewController: vc)

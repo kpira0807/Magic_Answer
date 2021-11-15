@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12571A7227049B4800EF3039 /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12571A7127049B4800EF3039 /* AnswerModel.swift */; };
+		12571A7227049B4800EF3039 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12571A7127049B4800EF3039 /* Answer.swift */; };
 		12571A782704A53E00EF3039 /* HardcodedAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12571A772704A53E00EF3039 /* HardcodedAnswers.swift */; };
 		12571A7A2704A69E00EF3039 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12571A792704A69E00EF3039 /* SettingViewController.swift */; };
 		12571A7C2705F51C00EF3039 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12571A7B2705F51C00EF3039 /* Error.swift */; };
 		127914B927393E2400943F86 /* AnswerDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127914B827393E2300943F86 /* AnswerDownloader.swift */; };
 		127914BB27393E9F00943F86 /* AnswerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127914BA27393E9F00943F86 /* AnswerStorage.swift */; };
-		127914BD27393ECA00943F86 /* AnswerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127914BC27393ECA00943F86 /* AnswerManager.swift */; };
+		127914BD27393ECA00943F86 /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127914BC27393ECA00943F86 /* AnswerModel.swift */; };
+		12F300592742790D00DC5C51 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F300582742790D00DC5C51 /* SettingModel.swift */; };
 		12FAE7332701B74E00A47323 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAE7322701B74E00A47323 /* AppDelegate.swift */; };
 		12FAE7352701B74E00A47323 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAE7342701B74E00A47323 /* SceneDelegate.swift */; };
 		12FAE73A2701B74E00A47323 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12FAE7382701B74E00A47323 /* Main.storyboard */; };
@@ -27,13 +28,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		12571A7127049B4800EF3039 /* AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
+		12571A7127049B4800EF3039 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		12571A772704A53E00EF3039 /* HardcodedAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodedAnswers.swift; sourceTree = "<group>"; };
 		12571A792704A69E00EF3039 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		12571A7B2705F51C00EF3039 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		127914B827393E2300943F86 /* AnswerDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDownloader.swift; sourceTree = "<group>"; };
 		127914BA27393E9F00943F86 /* AnswerStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerStorage.swift; sourceTree = "<group>"; };
-		127914BC27393ECA00943F86 /* AnswerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerManager.swift; sourceTree = "<group>"; };
+		127914BC27393ECA00943F86 /* AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
+		12F300582742790D00DC5C51 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		12FAE72F2701B74E00A47323 /* MagicAnswer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicAnswer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12FAE7322701B74E00A47323 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12FAE7342701B74E00A47323 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +76,7 @@
 		1272E4592709F45E004C4282 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				12571A7127049B4800EF3039 /* AnswerModel.swift */,
+				12571A7127049B4800EF3039 /* Answer.swift */,
 				12571A772704A53E00EF3039 /* HardcodedAnswers.swift */,
 			);
 			path = Models;
@@ -85,7 +87,8 @@
 			children = (
 				127914B827393E2300943F86 /* AnswerDownloader.swift */,
 				127914BA27393E9F00943F86 /* AnswerStorage.swift */,
-				127914BC27393ECA00943F86 /* AnswerManager.swift */,
+				127914BC27393ECA00943F86 /* AnswerModel.swift */,
+				12F300582742790D00DC5C51 /* SettingModel.swift */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -272,14 +275,15 @@
 				12571A7A2704A69E00EF3039 /* SettingViewController.swift in Sources */,
 				12571A7C2705F51C00EF3039 /* Error.swift in Sources */,
 				12FAE7472701D16200A47323 /* AnswerViewController.swift in Sources */,
-				127914BD27393ECA00943F86 /* AnswerManager.swift in Sources */,
+				127914BD27393ECA00943F86 /* AnswerModel.swift in Sources */,
 				12FAE7552701F3D600A47323 /* CustomViewBackground.swift in Sources */,
 				12FAE7512701DFD900A47323 /* CustomLabel.swift in Sources */,
 				12571A782704A53E00EF3039 /* HardcodedAnswers.swift in Sources */,
 				127914B927393E2400943F86 /* AnswerDownloader.swift in Sources */,
-				12571A7227049B4800EF3039 /* AnswerModel.swift in Sources */,
+				12571A7227049B4800EF3039 /* Answer.swift in Sources */,
 				12FAE7332701B74E00A47323 /* AppDelegate.swift in Sources */,
 				12FAE7352701B74E00A47323 /* SceneDelegate.swift in Sources */,
+				12F300592742790D00DC5C51 /* SettingModel.swift in Sources */,
 				127914BB27393E9F00943F86 /* AnswerStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,11 +1,44 @@
 import UIKit
 
+class AnswerViewModel {
+    
+    private let model: AnswerModel
+    
+    init(model: AnswerModel = AnswerModel()) {
+        self.model = model
+    }
+    
+    var updateAnswerLabel: ((String) -> Void)?
+    var showError: ((ErrorType) -> Void)?
+    
+    func userDidShake(with question: String) {
+        
+        if isQuestionExist(question) {
+            showError?(ErrorType.emptyField)
+        } else {
+            
+            model.getRandomAnswer { answer in
+                self.updateAnswerLabel?(answer)
+            }
+        }
+    }
+    private enum LocalConstant {
+        static let minQuestionLength = 5
+    }
+    
+    private func isQuestionExist(_ text: String?) -> Bool {
+        return (text == "") ||
+            (text == " ") ||
+            (text?.count ?? 0 < LocalConstant.minQuestionLength)
+    }
+}
+
 class AnswerViewController: UIViewController {
     
     @IBOutlet private weak var questionTextField: UITextField!
     @IBOutlet private weak var  answerLabel: CustomLabel!
     
-    private let answerManager: AnswerManagerProtocol
+    private let viewModel: AnswerViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,10 +48,23 @@ class AnswerViewController: UIViewController {
         let settingButton = UIBarButtonItem.init(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(openSettingScreen))
         self.navigationItem.rightBarButtonItem  = settingButton
         self.navigationController?.navigationBar.tintColor = UIColor.black
+        
+        setup()
     }
     
-    init?(coder: NSCoder, answerManager: AnswerManagerProtocol = AnswerManager()) {
-        self.answerManager = answerManager
+    private func setup() {
+        
+        viewModel.updateAnswerLabel = { [weak self] answer in
+            self?.updateAnswerLabel(answer)
+        }
+        
+        viewModel.showError = { [weak self] error in
+            self?.showError(with: error)
+        }
+    }
+    
+    init?(coder: NSCoder, viewModel: AnswerViewModel = AnswerViewModel()) {
+        self.viewModel = viewModel
         super.init(coder: coder)
     }
     
@@ -26,22 +72,13 @@ class AnswerViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private enum LocalConstant {
-        static let minQuestionLength = 5
-    }
-    
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if (questionTextField.text == "") ||
-            (questionTextField.text == " ") ||
-            (questionTextField.text?.count ?? 0 < LocalConstant.minQuestionLength){
-            showError(with: ErrorType.emptyField)
-        } else {
-            if motion == .motionShake {
-                answerManager.getRandomAnswer{ [weak self] answer in
-                    self?.updateAnswerLabel(answer)
-                }
-            }
+        
+        guard motion == .motionShake else {
+            return
         }
+        viewModel.userDidShake(with: questionTextField.text ?? "")
+        
     }
     
     private func updateAnswerLabel(_ answer: String) {
@@ -52,7 +89,7 @@ class AnswerViewController: UIViewController {
     
     @objc func openSettingScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        let vc = storyboard.instantiateViewController(identifier: "SettingViewController", creator: {coder -> SettingViewController? in SettingViewController.init(coder: coder, answers: HardcodedAnswers(), storage: AnswerStorage())
+        let vc = storyboard.instantiateViewController(identifier: "SettingViewController", creator: {coder -> SettingViewController? in SettingViewController.init(coder: coder, viewModel: SettingViewModel())
         })
         self.navigationController?.pushViewController(vc, animated: true)
     }
