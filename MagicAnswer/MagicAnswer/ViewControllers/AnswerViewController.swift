@@ -2,26 +2,30 @@ import UIKit
 
 class AnswerViewController: UIViewController {
 
-    @IBOutlet private weak var questionTextField: UITextField!
-    @IBOutlet private weak var  answerLabel: CustomLabel!
+    private let answerLabel = UILabel()
+    private let questionTextField = UITextField()
 
     private let answerManager: AnswerManagerProtocol
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        answerLabel.text = L10n.answerLaber
+        self.navigationItem.title = L10n.navigationItemAVC
 
         let settingButton = UIBarButtonItem.init(image: UIImage(systemName: "gear"),
                                                  style: .plain, target: self,
                                                  action: #selector(openSettingScreen))
         self.navigationItem.rightBarButtonItem  = settingButton
         self.navigationController?.navigationBar.tintColor = UIColor.black
+
+        customImage()
+        customShakeLabel()
+        customQuestionTextField()
     }
 
-    init?(coder: NSCoder, answerManager: AnswerManagerProtocol = AnswerManager()) {
+    init?(_ answerManager: AnswerManagerProtocol = AnswerManager()) {
         self.answerManager = answerManager
-        super.init(coder: coder)
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
@@ -53,14 +57,7 @@ class AnswerViewController: UIViewController {
     }
 
     @objc func openSettingScreen() {
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        let viewcontroller = storyboard.instantiateViewController(identifier: "SettingViewController",
-                                                                  creator: {coder -> SettingViewController? in
-                                                                    SettingViewController.init(coder: coder,
-                                                                     answers: HardcodedAnswers(),
-                                                                        storage: AnswerStorage())
-        })
-        self.navigationController?.pushViewController(viewcontroller, animated: true)
+        self.navigationController?.pushViewController(SettingViewController()!, animated: true)
     }
 
     func showError(with type: ErrorType) {
@@ -68,5 +65,51 @@ class AnswerViewController: UIViewController {
         let okeyAction = UIAlertAction(title: L10n.okeyAlert, style: .default, handler: nil)
         myAlert.addAction(okeyAction)
         self.present(myAlert, animated: true, completion: nil)
+    }
+}
+
+extension AnswerViewController {
+
+    private func customImage() {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "8-ball"))
+        view.addSubview(imageView)
+        let size = view.safeAreaLayoutGuide
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.centerXAnchor.constraint(equalTo: size.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: size.centerYAnchor).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 350).isActive = true
+    }
+
+    private func customShakeLabel() {
+        answerLabel.text = L10n.answerLaber
+        let size = view.safeAreaLayoutGuide
+        view.addSubview(answerLabel)
+        answerLabel.translatesAutoresizingMaskIntoConstraints = false
+        answerLabel.centerXAnchor.constraint(equalTo: size.centerXAnchor).isActive = true
+        answerLabel.centerYAnchor.constraint(equalTo: size.centerYAnchor).isActive = true
+        answerLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        answerLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
+
+        answerLabel.textAlignment = NSTextAlignment.center
+        answerLabel.textColor = Asset.newWhite.color
+        answerLabel.font = UIFont.systemFont(ofSize: 15.0)
+        answerLabel.numberOfLines = 0
+        answerLabel.clipsToBounds = true
+    }
+
+    private func customQuestionTextField() {
+        view.addSubview(questionTextField)
+        let size = view.safeAreaLayoutGuide
+        questionTextField.translatesAutoresizingMaskIntoConstraints = false
+        questionTextField.topAnchor.constraint(equalTo: size.topAnchor, constant: 10).isActive = true
+        questionTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
+        questionTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
+        questionTextField.placeholder = L10n.questionTextField
+
+        questionTextField.borderStyle = UITextField.BorderStyle.roundedRect
+        questionTextField.font = UIFont.init(name: "System", size: 14.0)
+        questionTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        questionTextField.clipsToBounds = true
     }
 }

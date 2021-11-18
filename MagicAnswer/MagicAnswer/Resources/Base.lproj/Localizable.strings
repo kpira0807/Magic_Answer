@@ -1,3 +1,10 @@
 "answerLaber" = "Shake!";
 "errorAlert" = "Error";
 "okeyAlert" = "Okey";
+"navigationItemAVC" = "Magic Answer";
+"navigationItemSVC" = "Settings";
+"questionTextField" = "Write your question";
+"presentFirstLabel" = "Choose first answer";
+"presentSecondLabel" = "Choose second answer";
+"presentThirdLabel" = "Choose third answer";
+
