@@ -1,0 +1,11 @@
+strings:
+  inputs: MagicAnswer/Resources
+  outputs:
+    - templateName: structured-swift4
+      output: MagicAnswer/Resources/SwiftGen/strings.swift
+xcassets:
+  inputs:
+    - MagicAnswer/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift4
+      output: MagicAnswer/Resources/SwiftGen/assets.swift
