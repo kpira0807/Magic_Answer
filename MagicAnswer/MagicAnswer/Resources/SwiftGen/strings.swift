@@ -12,6 +12,8 @@ import Foundation
 internal enum L10n {
   /// Shake!
   internal static let answerLaber = L10n.tr("Localizable", "answerLaber")
+  /// Please write your question
+  internal static let emptyField = L10n.tr("Localizable", "emptyField")
   /// Error
   internal static let errorAlert = L10n.tr("Localizable", "errorAlert")
   /// Okey

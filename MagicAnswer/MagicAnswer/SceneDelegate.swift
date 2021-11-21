@@ -11,13 +11,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
 
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            let viewControllet = storyboard.instantiateViewController(identifier: "AnswerViewController",
-                creator: {coder -> AnswerViewController? in
-                           AnswerViewController.init(coder: coder,
-                             answerManager: AnswerManager())
+            let vc = storyboard.instantiateViewController(identifier: "AnswerViewController",
+                                                          creator: {coder -> AnswerViewController? in AnswerViewController.init(coder: coder,
+                                                                           viewModel: AnswerViewModel(model: AnswerModel()))
             })
 
-            window.rootViewController = UINavigationController.init(rootViewController: viewControllet)
+            window.rootViewController = UINavigationController.init(rootViewController: vc)
             self.window = window
             window.makeKeyAndVisible()
         }

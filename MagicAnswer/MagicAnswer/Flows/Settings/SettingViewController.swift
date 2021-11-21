@@ -14,17 +14,14 @@ class SettingViewController: UIViewController {
     @IBOutlet private weak var presentThirdLabel: UILabel!
     @IBOutlet private weak var backgroundThirdView: CustomViewBackground!
 
-    private let answers: HardcodedAnswers
-    private let storage: AnswerStorageProtocol
+    private let viewModel: SettingViewModel
 
     private let firstPickerView = UIPickerView()
     private let secondPickerView = UIPickerView()
     private let thirdPickerView = UIPickerView()
 
-    init?(coder: NSCoder, answers: HardcodedAnswers = HardcodedAnswers(),
-          storage: AnswerStorageProtocol = AnswerStorage()) {
-        self.answers = answers
-        self.storage = storage
+    init?(coder: NSCoder, viewModel: SettingViewModel) {
+        self.viewModel = viewModel
         super.init(coder: coder)
     }
 
@@ -45,26 +42,21 @@ class SettingViewController: UIViewController {
         thirdPickerView.dataSource = self
 
         firstHardcodeAnswerTextField.inputView = firstPickerView
-        let answerFirst = answers.firstArrayAnswers[0]
-        firstHardcodeAnswerTextField.text = answerFirst
-
         secondHardcodeAnswerTextField.inputView = secondPickerView
-        let answerSecond = answers.secondArrayAnswers[0]
-        secondHardcodeAnswerTextField.text = answerSecond
-
         thirdHardcodeAnswerTextField.inputView = thirdPickerView
-        let answerThird = answers.thirdArrayAnswers[0]
-        thirdHardcodeAnswerTextField.text = answerThird
 
-        saveUserAnswer([answerFirst, answerSecond, answerThird])
-
-        presentFirstLabel.textColor =  Asset.newWhite.color
+        presentFirstLabel.textColor = Asset.newWhite.color
         presentSecondLabel.textColor = Asset.newWhite.color
         presentThirdLabel.textColor = Asset.newWhite.color
-    }
 
-    private func saveUserAnswer(_ answers: [String]) {
-        storage.saveAnswer(answers)
+        viewModel.viewLoaded()
+
+        viewModel.updateData = { [weak self] fields in
+            self?.firstHardcodeAnswerTextField.text = fields.first
+            self?.secondHardcodeAnswerTextField.text = fields.second
+            self?.thirdHardcodeAnswerTextField.text = fields.third
+
+        }
     }
 }
 
@@ -76,39 +68,34 @@ extension SettingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == firstPickerView {
-            return answers.firstArrayAnswers.count
+            return viewModel.getFirstAnswerNum()
         } else if pickerView == secondPickerView {
-            return answers.secondArrayAnswers.count
+            return viewModel.getSecondAnswerNum()
         } else if pickerView == thirdPickerView {
-            return answers.thirdArrayAnswers.count
+            return viewModel.getThirdAnswerNum()
         }
         return 1
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == firstPickerView {
-            return answers.firstArrayAnswers[row]
+            return viewModel.getFirstAnswers(for: row)
         } else if pickerView == secondPickerView {
-            return answers.secondArrayAnswers[row]
+            return viewModel.getSecondAnswers(for: row)
         } else if pickerView == thirdPickerView {
-            return answers.thirdArrayAnswers[row]
+            return viewModel.getThirdAnswers(for: row)
         }
         return ""
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == firstPickerView {
-            firstHardcodeAnswerTextField.text = answers.firstArrayAnswers[row]
+            firstHardcodeAnswerTextField.text = viewModel.getFirstAnswers(for: row)
         } else if pickerView == secondPickerView {
-            secondHardcodeAnswerTextField.text = answers.secondArrayAnswers[row]
+            secondHardcodeAnswerTextField.text = viewModel.getSecondAnswers(for: row)
         } else if pickerView == thirdPickerView {
-            thirdHardcodeAnswerTextField.text = answers.thirdArrayAnswers[row]
+            thirdHardcodeAnswerTextField.text = viewModel.getThirdAnswers(for: row)
         }
-        let array = [firstHardcodeAnswerTextField.text!,
-                     secondHardcodeAnswerTextField.text!,
-                     thirdHardcodeAnswerTextField.text!]
-        print(array)
-        saveUserAnswer(array)
         self.view.endEditing(false)
     }
 }

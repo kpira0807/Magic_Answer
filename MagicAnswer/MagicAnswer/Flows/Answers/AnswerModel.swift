@@ -1,14 +1,11 @@
 import Foundation
 
-protocol AnswerManagerProtocol {
-    func getRandomAnswer(_ completion: @escaping (String) -> Void)
-}
-
-final class AnswerManager: AnswerManagerProtocol {
+final class AnswerModel {
 
     private let downloader: AnswerDownloaderProtocol
     private let storage: AnswerStorageProtocol
     private let defaultAnswer: HardcodedAnswers
+    
     init(_ downloader: AnswerDownloaderProtocol = AnswerDownloader(),
          storage: AnswerStorageProtocol = AnswerStorage(),
          defaultAnswer: HardcodedAnswers = HardcodedAnswers()) {
