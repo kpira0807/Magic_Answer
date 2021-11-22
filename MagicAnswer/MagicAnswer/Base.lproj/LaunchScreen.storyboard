@@ -23,17 +23,16 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtq-pE-9Ib">
-                                <rect key="frame" x="20" y="94" width="374" height="48"/>
+                                <rect key="frame" x="20" y="94" width="374" height="60"/>
                                 <string key="text">I can answer any question!
 Just try it!</string>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <color key="textColor" red="0.025577399880000001" green="0.13865798709999999" blue="0.23138403890000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="uyY-Cd-doN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jtq-pE-9Ib" secondAttribute="bottom" constant="20" id="0Te-FK-eFI"/>
                             <constraint firstItem="jtq-pE-9Ib" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="3fO-g5-3gH"/>
                             <constraint firstItem="uyY-Cd-doN" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="49s-jZ-JWu"/>
                             <constraint firstItem="jtq-pE-9Ib" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="H61-MX-5na"/>
