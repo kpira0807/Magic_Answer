@@ -7,19 +7,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
 
-        if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-
-            let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            let vc = storyboard.instantiateViewController(identifier: "AnswerViewController",
-                                                          creator: {coder -> AnswerViewController? in AnswerViewController.init(coder: coder,
-                                                                           viewModel: AnswerViewModel(model: AnswerModel()))
-            })
-
-            window.rootViewController = UINavigationController.init(rootViewController: vc)
-            self.window = window
-            window.makeKeyAndVisible()
-        }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = UINavigationController.init(rootViewController: AnswerViewController(AnswerViewModel(model: AnswerModel()))!)
+        window?.backgroundColor = .white
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

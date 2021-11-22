@@ -1,7 +1,7 @@
 import Foundation
 
 class SettingModel {
-    
+
     private let answers: HardcodedAnswers
     private let storage: AnswerStorageProtocol
 
@@ -10,7 +10,7 @@ class SettingModel {
         self.answers = answers
         self.storage = storage
     }
-    
+
     var firstAnswer: [String] {
         return answers.firstArrayAnswers
     }
@@ -30,7 +30,7 @@ class SettingModel {
         saveData(fields: answer)
         return answer
     }
-    
+
     func getAndUpdateFirstAnswer(for row: Int) -> String {
         let answer = firstAnswer[row]
         updateAnswer(answer, for: row)

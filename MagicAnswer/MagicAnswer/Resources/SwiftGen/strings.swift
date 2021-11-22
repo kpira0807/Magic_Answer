@@ -16,8 +16,22 @@ internal enum L10n {
   internal static let emptyField = L10n.tr("Localizable", "emptyField")
   /// Error
   internal static let errorAlert = L10n.tr("Localizable", "errorAlert")
+  /// Magic Answer
+  internal static let navigationItemAVC = L10n.tr("Localizable", "navigationItemAVC")
+  /// Settings
+  internal static let navigationItemSVC = L10n.tr("Localizable", "navigationItemSVC")
   /// Okey
   internal static let okeyAlert = L10n.tr("Localizable", "okeyAlert")
+  /// Choose the answer you want
+  internal static let placeholder = L10n.tr("Localizable", "placeholder")
+  /// Choose first answer
+  internal static let presentFirstLabel = L10n.tr("Localizable", "presentFirstLabel")
+  /// Choose second answer
+  internal static let presentSecondLabel = L10n.tr("Localizable", "presentSecondLabel")
+  /// Choose third answer
+  internal static let presentThirdLabel = L10n.tr("Localizable", "presentThirdLabel")
+  /// Write your question
+  internal static let questionTextField = L10n.tr("Localizable", "questionTextField")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

@@ -3,9 +3,9 @@ import Foundation
 class SettingViewModel {
 
     private let model: SettingModel
-    
+
     var updateData: ((Fields) -> Void)?
-    
+
     private var currentFields: Fields
 
     typealias Fields = (first: String?, second: String?, third: String?)
@@ -60,7 +60,7 @@ class SettingViewModel {
     func getThirdAnswers(for row: Int) -> String? {
         return model.thirdAnswer[row]
     }
-    
+
     private static func convertToFields(_ convertAnswer: [String]) -> Fields {
         let convertAnswer1 = convertAnswer[0]
         let convertAnswer2 = convertAnswer[1]
