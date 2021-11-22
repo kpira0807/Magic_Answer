@@ -7,4 +7,6 @@
 "presentFirstLabel" = "Choose first answer";
 "presentSecondLabel" = "Choose second answer";
 "presentThirdLabel" = "Choose third answer";
+"emptyField" = "Please write your question";
+"placeholder" =  "Choose the answer you want";
 

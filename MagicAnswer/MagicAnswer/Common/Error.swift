@@ -1,5 +1,12 @@
 import Foundation
 
-enum ErrorType: String {
-    case emptyField = "Please write your question"
+enum ErrorType: Error {
+    case emptyField
+
+    var message: String {
+        switch self {
+        case .emptyField:
+            return L10n.emptyField
+        }
+    }
 }

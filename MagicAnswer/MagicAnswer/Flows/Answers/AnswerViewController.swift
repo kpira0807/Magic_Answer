@@ -5,7 +5,7 @@ class AnswerViewController: UIViewController {
     private let answerLabel = UILabel()
     private let questionTextField = UITextField()
 
-    private let answerManager: AnswerManagerProtocol
+    private let viewModel: AnswerViewModel
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +21,23 @@ class AnswerViewController: UIViewController {
         customImage()
         customShakeLabel()
         customQuestionTextField()
+
+        setup()
     }
 
-    init?(_ answerManager: AnswerManagerProtocol = AnswerManager()) {
-        self.answerManager = answerManager
+    private func setup() {
+
+        viewModel.updateAnswerLabel = { [weak self] answer in
+            self?.updateAnswerLabel(answer)
+        }
+
+        viewModel.showError = { [weak self] error in
+            self?.showError(with: error)
+        }
+    }
+
+    init?(_ viewModel: AnswerViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -32,22 +45,11 @@ class AnswerViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private enum LocalConstant {
-        static let minQuestionLength = 5
-    }
-
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if (questionTextField.text == "") ||
-            (questionTextField.text == " ") ||
-            (questionTextField.text?.count ?? 0 < LocalConstant.minQuestionLength) {
-            showError(with: ErrorType.emptyField)
-        } else {
-            if motion == .motionShake {
-                answerManager.getRandomAnswer { [weak self] answer in
-                    self?.updateAnswerLabel(answer)
-                }
-            }
+        guard motion == .motionShake else {
+            return
         }
+        viewModel.userDidShake(with: questionTextField.text ?? "")
     }
 
     private func updateAnswerLabel(_ answer: String) {
@@ -57,11 +59,12 @@ class AnswerViewController: UIViewController {
     }
 
     @objc func openSettingScreen() {
-        self.navigationController?.pushViewController(SettingViewController()!, animated: true)
+        self.navigationController?.pushViewController(SettingViewController(SettingViewModel(model: SettingModel()))!,
+            animated: true)
     }
 
     func showError(with type: ErrorType) {
-        let myAlert = UIAlertController(title: L10n.errorAlert, message: type.rawValue, preferredStyle: .alert)
+        let myAlert = UIAlertController(title: L10n.errorAlert, message: type.message, preferredStyle: .alert)
         let okeyAction = UIAlertAction(title: L10n.okeyAlert, style: .default, handler: nil)
         myAlert.addAction(okeyAction)
         self.present(myAlert, animated: true, completion: nil)
@@ -71,23 +74,24 @@ class AnswerViewController: UIViewController {
 extension AnswerViewController {
 
     private func customImage() {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "8-ball"))
+        let imageView = UIImageView(image: Asset.ball.image)
+      //  let imageView = UIImageView(image: #imageLiteral(resourceName: "8-ball"))
         view.addSubview(imageView)
-        let size = view.safeAreaLayoutGuide
+    //    let size = view.safeAreaLayoutGuide
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.centerXAnchor.constraint(equalTo: size.centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: size.centerYAnchor).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 350).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 350).isActive = true
     }
 
     private func customShakeLabel() {
         answerLabel.text = L10n.answerLaber
-        let size = view.safeAreaLayoutGuide
+     //   let size = view.safeAreaLayoutGuide
         view.addSubview(answerLabel)
         answerLabel.translatesAutoresizingMaskIntoConstraints = false
-        answerLabel.centerXAnchor.constraint(equalTo: size.centerXAnchor).isActive = true
-        answerLabel.centerYAnchor.constraint(equalTo: size.centerYAnchor).isActive = true
+        answerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        answerLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         answerLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         answerLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
 
