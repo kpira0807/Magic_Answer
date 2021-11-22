@@ -75,9 +75,7 @@ extension AnswerViewController {
 
     private func customImage() {
         let imageView = UIImageView(image: Asset.ball.image)
-      //  let imageView = UIImageView(image: #imageLiteral(resourceName: "8-ball"))
         view.addSubview(imageView)
-    //    let size = view.safeAreaLayoutGuide
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -87,7 +85,7 @@ extension AnswerViewController {
 
     private func customShakeLabel() {
         answerLabel.text = L10n.answerLaber
-     //   let size = view.safeAreaLayoutGuide
+
         view.addSubview(answerLabel)
         answerLabel.translatesAutoresizingMaskIntoConstraints = false
         answerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
