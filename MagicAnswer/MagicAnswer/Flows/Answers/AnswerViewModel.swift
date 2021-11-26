@@ -16,12 +16,13 @@ class AnswerViewModel {
         if isQuestionExist(question) {
             showError?(ErrorType.emptyField)
         } else {
-
             model.getRandomAnswer { answer in
+                self.model.saveShakeAnswer(answer)
                 self.updateAnswerLabel?(answer)
             }
         }
     }
+    
     private enum LocalConstant {
         static let minQuestionLength = 5
     }

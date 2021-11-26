@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8-ball" translatesAutoresizingMaskIntoConstraints="NO" id="uyY-Cd-doN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ball" translatesAutoresizingMaskIntoConstraints="NO" id="uyY-Cd-doN">
                                 <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="AKk-li-uSb"/>
@@ -51,6 +51,6 @@ Just try it!</string>
         </scene>
     </scenes>
     <resources>
-        <image name="8-ball" width="695" height="695"/>
+        <image name="ball" width="695" height="695"/>
     </resources>
 </document>

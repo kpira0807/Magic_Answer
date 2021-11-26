@@ -9,4 +9,6 @@ target 'MagicAnswer' do
 pod 'SwiftLint', '~> 0.45'
 pod 'SwiftGen', '~> 6.0'
 
+pod 'RealmSwift', '~> 3.19.0'
+
 end

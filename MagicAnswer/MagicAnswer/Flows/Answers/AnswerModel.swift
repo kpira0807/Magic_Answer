@@ -5,13 +5,16 @@ final class AnswerModel {
     private let downloader: AnswerDownloaderProtocol
     private let storage: AnswerStorageProtocol
     private let defaultAnswer: HardcodedAnswers
+    private let history: HistoryStorage
 
     init(_ downloader: AnswerDownloaderProtocol = AnswerDownloader(),
          storage: AnswerStorageProtocol = AnswerStorage(),
-         defaultAnswer: HardcodedAnswers = HardcodedAnswers()) {
+         defaultAnswer: HardcodedAnswers = HardcodedAnswers(),
+         history: HistoryStorage = HistoryStorage()) {
         self.downloader = downloader
         self.storage = storage
         self.defaultAnswer = defaultAnswer
+        self.history = history
     }
 
     func getRandomAnswer(_ completion: @escaping (String) -> Void) {
@@ -32,5 +35,9 @@ final class AnswerModel {
             return defaultsAnswer ?? defaultAnswer.defaultRandomAnswer
         }
         return answer
+    }
+    
+    func saveShakeAnswer(_ text: String) {
+        history.saveAnswer(text)
     }
 }

@@ -9,4 +9,7 @@
 "presentThirdLabel" = "Choose third answer";
 "emptyField" = "Please write your question";
 "placeholder" =  "Choose the answer you want";
+"history" = "History";
+"intro" = "Welcome";
+"introLabel" = "The ball will answer any question!";
 
