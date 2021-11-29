@@ -10,13 +10,16 @@ class AnswerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .white
+
         self.navigationItem.title = L10n.navigationItemAVC
 
         let settingButton = UIBarButtonItem.init(image: UIImage(systemName: "gear"),
                                                  style: .plain, target: self,
                                                  action: #selector(openSettingScreen))
         self.navigationItem.rightBarButtonItem  = settingButton
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.tintColor = Asset.newBlack.color
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Asset.newBlack.color]
 
         customImage()
         customShakeLabel()
@@ -75,9 +78,7 @@ extension AnswerViewController {
 
     private func customImage() {
         let imageView = UIImageView(image: Asset.ball.image)
-      //  let imageView = UIImageView(image: #imageLiteral(resourceName: "8-ball"))
         view.addSubview(imageView)
-    //    let size = view.safeAreaLayoutGuide
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -87,7 +88,6 @@ extension AnswerViewController {
 
     private func customShakeLabel() {
         answerLabel.text = L10n.answerLaber
-     //   let size = view.safeAreaLayoutGuide
         view.addSubview(answerLabel)
         answerLabel.translatesAutoresizingMaskIntoConstraints = false
         answerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

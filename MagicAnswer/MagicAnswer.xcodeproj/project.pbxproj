@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,11 +20,19 @@
 		12932028274B85A600FB8506 /* AnswerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12932027274B85A600FB8506 /* AnswerViewModel.swift */; };
 		1293202A274B866800FB8506 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12932029274B866800FB8506 /* SettingModel.swift */; };
 		1293202C274B867D00FB8506 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1293202B274B867D00FB8506 /* SettingViewModel.swift */; };
+		12F410D8274CD526008F0BB9 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F410D7274CD526008F0BB9 /* IntroViewController.swift */; };
+		12F410DD274CDA67008F0BB9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F410DC274CDA67008F0BB9 /* TabBarController.swift */; };
+		12F410E1274D2CB4008F0BB9 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F410E0274D2CB4008F0BB9 /* HistoryViewController.swift */; };
+		12F410E3274D33D0008F0BB9 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F410E2274D33D0008F0BB9 /* HistoryTableViewCell.swift */; };
 		12FAE7332701B74E00A47323 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAE7322701B74E00A47323 /* AppDelegate.swift */; };
 		12FAE7352701B74E00A47323 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAE7342701B74E00A47323 /* SceneDelegate.swift */; };
 		12FAE73C2701B76F00A47323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12FAE73B2701B76F00A47323 /* Assets.xcassets */; };
 		12FAE73F2701B76F00A47323 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12FAE73D2701B76F00A47323 /* LaunchScreen.storyboard */; };
 		12FAE7472701D16200A47323 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAE7462701D16200A47323 /* AnswerViewController.swift */; };
+		12FB54F327500A6D00F80608 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FB54F227500A6D00F80608 /* HistoryViewModel.swift */; };
+		12FB54F527500A9100F80608 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FB54F427500A9100F80608 /* HistoryModel.swift */; };
+		12FB54F727500B2300F80608 /* HistoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FB54F627500B2300F80608 /* HistoryStorage.swift */; };
+		12FB54F927500B6500F80608 /* PresentedAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FB54F827500B6500F80608 /* PresentedAnswer.swift */; };
 		8B933DF701F8455CBE580225 /* Pods_MagicAnswer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00A9A37ED420202DCFB5588 /* Pods_MagicAnswer.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +51,10 @@
 		12932027274B85A600FB8506 /* AnswerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewModel.swift; sourceTree = "<group>"; };
 		12932029274B866800FB8506 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		1293202B274B867D00FB8506 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		12F410D7274CD526008F0BB9 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		12F410DC274CDA67008F0BB9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		12F410E0274D2CB4008F0BB9 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		12F410E2274D33D0008F0BB9 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		12FAE72F2701B74E00A47323 /* MagicAnswer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicAnswer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12FAE7322701B74E00A47323 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12FAE7342701B74E00A47323 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +62,10 @@
 		12FAE73E2701B76F00A47323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12FAE7402701B76F00A47323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12FAE7462701D16200A47323 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
+		12FB54F227500A6D00F80608 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		12FB54F427500A9100F80608 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		12FB54F627500B2300F80608 /* HistoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStorage.swift; sourceTree = "<group>"; };
+		12FB54F827500B6500F80608 /* PresentedAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentedAnswer.swift; sourceTree = "<group>"; };
 		9ED948CF7C93FA3460075EAA /* Pods-MagicAnswer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicAnswer.debug.xcconfig"; path = "Target Support Files/Pods-MagicAnswer/Pods-MagicAnswer.debug.xcconfig"; sourceTree = "<group>"; };
 		AB4E5B4409A224E5D3FF1387 /* Pods-MagicAnswer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicAnswer.release.xcconfig"; path = "Target Support Files/Pods-MagicAnswer/Pods-MagicAnswer.release.xcconfig"; sourceTree = "<group>"; };
 		E00A9A37ED420202DCFB5588 /* Pods_MagicAnswer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicAnswer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +88,7 @@
 			children = (
 				12571A7127049B4800EF3039 /* Answer.swift */,
 				12571A772704A53E00EF3039 /* HardcodedAnswers.swift */,
+				12FB54F827500B6500F80608 /* PresentedAnswer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -96,8 +113,11 @@
 		12932023274B84D400FB8506 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				12F410D9274CD52F008F0BB9 /* History */,
 				12932026274B851000FB8506 /* Settings */,
 				12932025274B850400FB8506 /* Answers */,
+				12F410D7274CD526008F0BB9 /* IntroViewController.swift */,
+				12F410DC274CDA67008F0BB9 /* TabBarController.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -107,6 +127,7 @@
 			children = (
 				127914B827393E2300943F86 /* AnswerDownloader.swift */,
 				127914BA27393E9F00943F86 /* AnswerStorage.swift */,
+				12FB54F627500B2300F80608 /* HistoryStorage.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -139,6 +160,17 @@
 				12905B02273C330D001F9053 /* SwiftGen */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		12F410D9274CD52F008F0BB9 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				12F410E0274D2CB4008F0BB9 /* HistoryViewController.swift */,
+				12F410E2274D33D0008F0BB9 /* HistoryTableViewCell.swift */,
+				12FB54F227500A6D00F80608 /* HistoryViewModel.swift */,
+				12FB54F427500A9100F80608 /* HistoryModel.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 		12FAE7262701B74E00A47323 = {
@@ -205,7 +237,8 @@
 				12FAE72B2701B74E00A47323 /* Sources */,
 				12FAE72C2701B74E00A47323 /* Frameworks */,
 				12FAE72D2701B74E00A47323 /* Resources */,
-				12905AFF273A9A95001F9053 /* ShellScript */,
+				12905AFF273A9A95001F9053 /* SwiftLint */,
+				1D3311C516602BB69530E218 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -263,7 +296,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		12905AFF273A9A95001F9053 /* ShellScript */ = {
+		12905AFF273A9A95001F9053 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
 			files = (
@@ -272,6 +305,7 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -297,6 +331,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\n";
+		};
+		1D3311C516602BB69530E218 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MagicAnswer/Pods-MagicAnswer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MagicAnswer/Pods-MagicAnswer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MagicAnswer/Pods-MagicAnswer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		2C1CA06628C1F7C1F140DB5E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -332,16 +383,24 @@
 				12905B13273C3837001F9053 /* assets.swift in Sources */,
 				12571A7C2705F51C00EF3039 /* Error.swift in Sources */,
 				12FAE7472701D16200A47323 /* AnswerViewController.swift in Sources */,
+				12FB54F527500A9100F80608 /* HistoryModel.swift in Sources */,
+				12FB54F727500B2300F80608 /* HistoryStorage.swift in Sources */,
 				127914BD27393ECA00943F86 /* AnswerModel.swift in Sources */,
 				12905B14273C3837001F9053 /* strings.swift in Sources */,
+				12F410D8274CD526008F0BB9 /* IntroViewController.swift in Sources */,
 				12571A782704A53E00EF3039 /* HardcodedAnswers.swift in Sources */,
 				127914B927393E2400943F86 /* AnswerDownloader.swift in Sources */,
+				12F410DD274CDA67008F0BB9 /* TabBarController.swift in Sources */,
 				12571A7227049B4800EF3039 /* Answer.swift in Sources */,
 				1293202C274B867D00FB8506 /* SettingViewModel.swift in Sources */,
 				12FAE7332701B74E00A47323 /* AppDelegate.swift in Sources */,
 				12FAE7352701B74E00A47323 /* SceneDelegate.swift in Sources */,
+				12FB54F327500A6D00F80608 /* HistoryViewModel.swift in Sources */,
+				12F410E3274D33D0008F0BB9 /* HistoryTableViewCell.swift in Sources */,
+				12F410E1274D2CB4008F0BB9 /* HistoryViewController.swift in Sources */,
 				1293202A274B866800FB8506 /* SettingModel.swift in Sources */,
 				127914BB27393E9F00943F86 /* AnswerStorage.swift in Sources */,
+				12FB54F927500B6500F80608 /* PresentedAnswer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,12 @@ internal enum L10n {
   internal static let emptyField = L10n.tr("Localizable", "emptyField")
   /// Error
   internal static let errorAlert = L10n.tr("Localizable", "errorAlert")
+  /// History
+  internal static let history = L10n.tr("Localizable", "history")
+  /// Welcome
+  internal static let intro = L10n.tr("Localizable", "intro")
+  /// The ball will answer any question!
+  internal static let introLabel = L10n.tr("Localizable", "introLabel")
   /// Magic Answer
   internal static let navigationItemAVC = L10n.tr("Localizable", "navigationItemAVC")
   /// Settings
