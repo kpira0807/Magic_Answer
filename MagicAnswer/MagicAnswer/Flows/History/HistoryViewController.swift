@@ -8,10 +8,10 @@ class HistoryViewController: UIViewController {
         return tableView
     }()
     
-    private let model: HistoryViewModel
+    private let viewModel: HistoryViewModel
     
-    init?(_ model: HistoryViewModel) {
-        self.model = model
+    init?(_ viewModel: HistoryViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,7 +30,7 @@ class HistoryViewController: UIViewController {
         navigationItem.title = L10n.history
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Asset.newBlack.color]
         
-        model.loadInfo()
+        viewModel.loadInfo()
     }
     
     override func viewDidLayoutSubviews() {
@@ -41,15 +41,15 @@ class HistoryViewController: UIViewController {
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.numberOfRowsInSection()
+        return viewModel.numberOfRowsInSection()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier,
                                                        for: indexPath) as? HistoryTableViewCell else {
                                                         return UITableViewCell()}
-        cell.configure(history: model.message(for: indexPath.row),
-                       data: model.dateString(for: indexPath.row),
+        cell.configure(history: viewModel.message(for: indexPath.row),
+                       data: viewModel.dateString(for: indexPath.row),
                        imageName: Asset.ball.image)
         return cell
     }

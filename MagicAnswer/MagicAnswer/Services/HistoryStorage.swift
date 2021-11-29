@@ -6,16 +6,28 @@ final class HistoryStorage {
         let object = PresentedAnswer()
         object.date = Date()
         object.message = answer
-        
-        guard let realm = try? Realm() else { return }
-        try? realm.write {
-            realm.add(object)
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(object)
+            }
+        } catch {
+            print("Error")
         }
     }
     
-    func getGivenAnswer() -> Results<PresentedAnswer> {
-        let realm = try? Realm()
-        return realm!.objects(PresentedAnswer.self).sorted(byKeyPath: PresentedAnswer.Property.date.rawValue,
-                                                           ascending: false)
+    var results: Results<PresentedAnswer>!
+    
+    func getGivenAnswer() -> [PresentedAnswer] {
+        do {
+            let realm = try Realm()
+            let answers = realm.objects(PresentedAnswer.self).sorted(byKeyPath: PresentedAnswer.Property.date.rawValue, ascending: false)
+            let arrayAnswers = Array(answers)
+            return arrayAnswers
+        } catch {
+            print("Error")
+        }
+        let arrayAnswers = Array(results)
+        return arrayAnswers
     }
 }
