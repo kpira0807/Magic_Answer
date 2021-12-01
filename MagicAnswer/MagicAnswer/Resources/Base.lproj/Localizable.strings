@@ -12,4 +12,7 @@
 "history" = "History";
 "intro" = "Welcome";
 "introLabel" = "The ball will answer any question!";
+"homeTitle" = "Home";
+"gameTitle" = "Game";
+"historyTitle" = "History";
 

@@ -15,7 +15,7 @@ final class HistoryStorage {
                         realm.refresh()
                     }
                 } catch {
-                    print("Error")
+                    print(L10n.errorAlert)
                 }
             }
         }
@@ -32,10 +32,9 @@ final class HistoryStorage {
                 let arrayAnswers = Array(answers)
                 return arrayAnswers
             } catch {
-                print("Error")
+                print(L10n.errorAlert)
             }
-            let arrayAnswers = Array(results)
-            return arrayAnswers
+            return []
         }
     }
 }
