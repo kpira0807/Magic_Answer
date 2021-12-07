@@ -38,11 +38,6 @@ class HistoryViewController: UIViewController {
         tableView.frame = view.bounds
         animateTableCell()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        animateTableCell()
-    }
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
