@@ -32,9 +32,9 @@ class HistoryViewController: UIViewController {
         
         viewModel.loadInfo()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         tableView.frame = view.bounds
         animateTableCell()
     }
