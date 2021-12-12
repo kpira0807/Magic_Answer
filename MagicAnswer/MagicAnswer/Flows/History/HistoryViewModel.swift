@@ -36,4 +36,3 @@ class HistoryViewModel {
         return answers[index].date
     }
 }
-
