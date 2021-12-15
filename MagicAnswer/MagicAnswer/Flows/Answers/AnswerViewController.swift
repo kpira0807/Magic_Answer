@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 class AnswerViewController: UIViewController {
     
@@ -27,20 +29,22 @@ class AnswerViewController: UIViewController {
         customImage()
         customShakeLabel()
         customQuestionTextField()
-        
-        setup()
+        subscribeOnChanges()
     }
+    private let disposeBag = DisposeBag()
     
-    private func setup() {
-        viewModel.updateAnswerLabel = { [weak self] answer in
-            self?.updateAnswerLabel(answer)
-        }
-        
-        viewModel.showError = { [weak self] error in
-            self?.showError(with: error)
-        }
+    private func subscribeOnChanges() {
+        viewModel.answerText.subscribe(onNext: { [weak self] result in
+            switch result {
+            case .success(let text):
+                self?.updateAnswerLabel(text)
+            case .failed(let error):
+                self?.showError(with: error)
+            }
+        })
+            .disposed(by: disposeBag)
     }
-    
+
     init?(_ viewModel: AnswerViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
