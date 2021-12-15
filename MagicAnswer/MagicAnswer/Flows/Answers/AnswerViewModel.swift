@@ -4,6 +4,7 @@ import RxSwift
 class AnswerViewModel {
     
     private let model: AnswerModel
+    private let disposeBag = DisposeBag()
     
     init(model: AnswerModel) {
         self.model = model
@@ -25,7 +26,6 @@ class AnswerViewModel {
             model.generateRandomAnswer()
         }
     }
-    private let disposeBag = DisposeBag()
     
     private func subscribeOnNewAnswer() {
         model.randomAnswer.subscribe(onNext: { [weak self] answer in

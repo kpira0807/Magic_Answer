@@ -8,6 +8,8 @@ final class AnswerModel {
     private let defaultAnswer: HardcodedAnswers
     private let history: HistoryStorage
     
+    var randomAnswer = PublishSubject<String>()
+    
     init(_ downloader: AnswerDownloaderProtocol = AnswerDownloader(),
          storage: AnswerStorageProtocol = AnswerStorage(),
          defaultAnswer: HardcodedAnswers = HardcodedAnswers(),
@@ -17,9 +19,7 @@ final class AnswerModel {
         self.defaultAnswer = defaultAnswer
         self.history = history
     }
-    
-    var randomAnswer = PublishSubject<String>()
-    
+
     func generateRandomAnswer() {
         downloader.getQuestionResponse(success: { [weak self] answer in
             self?.randomAnswer.onNext(answer)
