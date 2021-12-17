@@ -12,6 +12,7 @@ class SettingViewModel {
     typealias Fields = (first: String?, second: String?, third: String?)
     
     init(model: SettingModel) {
+        
         self.model = model
         self.currentFields = SettingViewModel.convertToFields(model.getAndUpdateDefaultQuestion())
     }

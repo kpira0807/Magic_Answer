@@ -15,14 +15,7 @@ class AnswerViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
         self.navigationItem.title = L10n.navigationItemAVC
-        
-        let settingButton = UIBarButtonItem.init(image: UIImage(systemName: "gear"),
-                                                 style: .plain, target: self,
-                                                 action: #selector(openSettingScreen))
-        self.navigationItem.rightBarButtonItem  = settingButton
-        self.navigationController?.navigationBar.tintColor = Asset.newBlack.color
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Asset.newBlack.color]
         
         customView()
@@ -65,12 +58,7 @@ class AnswerViewController: UIViewController {
     private func updateAnswerLabel(_ answer: String) {
         animateAnswerLabel(answer: answer, label: answerLabel)
     }
-    
-    @objc func openSettingScreen() {
-        self.navigationController?.pushViewController(SettingViewController(SettingViewModel(model: SettingModel()))!,
-                                                      animated: true)
-    }
-    
+
     func showError(with type: ErrorType) {
         let myAlert = UIAlertController(title: L10n.errorAlert, message: type.message, preferredStyle: .alert)
         let okeyAction = UIAlertAction(title: L10n.okeyAlert, style: .default, handler: nil)

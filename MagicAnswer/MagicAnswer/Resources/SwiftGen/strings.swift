@@ -44,6 +44,8 @@ internal enum L10n {
   internal static let presentThirdLabel = L10n.tr("Localizable", "presentThirdLabel")
   /// Write your question
   internal static let questionTextField = L10n.tr("Localizable", "questionTextField")
+  /// Setting
+  internal static let settingTitle = L10n.tr("Localizable", "settingTitle")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
