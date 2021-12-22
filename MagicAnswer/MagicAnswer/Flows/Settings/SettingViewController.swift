@@ -36,7 +36,9 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
         self.navigationItem.title = L10n.navigationItemSVC
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Asset.newBlack.color]
         
         firstPickerView.delegate = self
         firstPickerView.dataSource = self

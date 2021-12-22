@@ -1,6 +1,6 @@
 import Foundation
 
-class HistoryModel {
+class HistoryModel: NavigationNode {
     
     struct AnswerHistoryModel {
         let date: Date
@@ -9,8 +9,12 @@ class HistoryModel {
     
     private let storage: HistoryStorage
     
-    init(storage: HistoryStorage = HistoryStorage()) {
+    init(parent: NavigationNode,
+         storage: HistoryStorage = HistoryStorage()) {
+        
         self.storage = storage
+        
+        super.init(parent: parent)
     }
     
     func getAnswer() -> [AnswerHistoryModel] {

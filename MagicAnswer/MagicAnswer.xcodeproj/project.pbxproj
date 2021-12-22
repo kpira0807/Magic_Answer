@@ -21,8 +21,14 @@
 		1293202A274B866800FB8506 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12932029274B866800FB8506 /* SettingModel.swift */; };
 		1293202C274B867D00FB8506 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1293202B274B867D00FB8506 /* SettingViewModel.swift */; };
 		12A41715275C0B3E00A64087 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A41714275C0B3E00A64087 /* UIViewExtensions.swift */; };
+		12C1E84C276C863400AA28D6 /* NavigationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C1E84B276C863400AA28D6 /* NavigationNode.swift */; };
+		12C1E84E276C87AC00AA28D6 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C1E84D276C87AC00AA28D6 /* FlowCoordinator.swift */; };
+		12C1E850276C902E00AA28D6 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C1E84F276C902E00AA28D6 /* AppFlowCoordinator.swift */; };
+		12C1E852276C9F8500AA28D6 /* HistoryFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C1E851276C9F8500AA28D6 /* HistoryFlowCoordinator.swift */; };
+		12C1E854276C9F9900AA28D6 /* SettingsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C1E853276C9F9900AA28D6 /* SettingsFlowCoordinator.swift */; };
+		12C1E856276C9FA500AA28D6 /* AnswerFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C1E855276C9FA500AA28D6 /* AnswerFlowCoordinator.swift */; };
+		12C1E858276CC9C500AA28D6 /* IntroFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C1E857276CC9C400AA28D6 /* IntroFlowCoordinator.swift */; };
 		12F410D8274CD526008F0BB9 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F410D7274CD526008F0BB9 /* IntroViewController.swift */; };
-		12F410DD274CDA67008F0BB9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F410DC274CDA67008F0BB9 /* TabBarController.swift */; };
 		12F410E1274D2CB4008F0BB9 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F410E0274D2CB4008F0BB9 /* HistoryViewController.swift */; };
 		12F410E3274D33D0008F0BB9 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F410E2274D33D0008F0BB9 /* HistoryTableViewCell.swift */; };
 		12FAE7332701B74E00A47323 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAE7322701B74E00A47323 /* AppDelegate.swift */; };
@@ -53,8 +59,14 @@
 		12932029274B866800FB8506 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		1293202B274B867D00FB8506 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		12A41714275C0B3E00A64087 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		12C1E84B276C863400AA28D6 /* NavigationNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationNode.swift; sourceTree = "<group>"; };
+		12C1E84D276C87AC00AA28D6 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		12C1E84F276C902E00AA28D6 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
+		12C1E851276C9F8500AA28D6 /* HistoryFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryFlowCoordinator.swift; sourceTree = "<group>"; };
+		12C1E853276C9F9900AA28D6 /* SettingsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlowCoordinator.swift; sourceTree = "<group>"; };
+		12C1E855276C9FA500AA28D6 /* AnswerFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerFlowCoordinator.swift; sourceTree = "<group>"; };
+		12C1E857276CC9C400AA28D6 /* IntroFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroFlowCoordinator.swift; sourceTree = "<group>"; };
 		12F410D7274CD526008F0BB9 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
-		12F410DC274CDA67008F0BB9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		12F410E0274D2CB4008F0BB9 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		12F410E2274D33D0008F0BB9 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		12FAE72F2701B74E00A47323 /* MagicAnswer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicAnswer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,7 +132,7 @@
 				12932026274B851000FB8506 /* Settings */,
 				12932025274B850400FB8506 /* Answers */,
 				12F410D7274CD526008F0BB9 /* IntroViewController.swift */,
-				12F410DC274CDA67008F0BB9 /* TabBarController.swift */,
+				12C1E857276CC9C400AA28D6 /* IntroFlowCoordinator.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -138,6 +150,7 @@
 		12932025274B850400FB8506 /* Answers */ = {
 			isa = PBXGroup;
 			children = (
+				12C1E855276C9FA500AA28D6 /* AnswerFlowCoordinator.swift */,
 				127914BC27393ECA00943F86 /* AnswerModel.swift */,
 				12932027274B85A600FB8506 /* AnswerViewModel.swift */,
 				12FAE7462701D16200A47323 /* AnswerViewController.swift */,
@@ -148,11 +161,22 @@
 		12932026274B851000FB8506 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				12C1E853276C9F9900AA28D6 /* SettingsFlowCoordinator.swift */,
 				12932029274B866800FB8506 /* SettingModel.swift */,
 				1293202B274B867D00FB8506 /* SettingViewModel.swift */,
 				12571A792704A69E00EF3039 /* SettingViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		12C1E859276CCFA700AA28D6 /* FlowCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				12C1E84D276C87AC00AA28D6 /* FlowCoordinator.swift */,
+				12C1E84F276C902E00AA28D6 /* AppFlowCoordinator.swift */,
+				12C1E84B276C863400AA28D6 /* NavigationNode.swift */,
+			);
+			path = FlowCoordinator;
 			sourceTree = "<group>";
 		};
 		12F300542740135B00DC5C51 /* Resources */ = {
@@ -168,10 +192,11 @@
 		12F410D9274CD52F008F0BB9 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				12C1E851276C9F8500AA28D6 /* HistoryFlowCoordinator.swift */,
+				12FB54F427500A9100F80608 /* HistoryModel.swift */,
+				12FB54F227500A6D00F80608 /* HistoryViewModel.swift */,
 				12F410E0274D2CB4008F0BB9 /* HistoryViewController.swift */,
 				12F410E2274D33D0008F0BB9 /* HistoryTableViewCell.swift */,
-				12FB54F227500A6D00F80608 /* HistoryViewModel.swift */,
-				12FB54F427500A9100F80608 /* HistoryModel.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -198,6 +223,7 @@
 		12FAE7312701B74E00A47323 /* MagicAnswer */ = {
 			isa = PBXGroup;
 			children = (
+				12C1E859276CCFA700AA28D6 /* FlowCoordinator */,
 				12F300542740135B00DC5C51 /* Resources */,
 				1272E45B2709F4B1004C4282 /* Common */,
 				1272E4592709F45E004C4282 /* Models */,
@@ -382,19 +408,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				12571A7A2704A69E00EF3039 /* SettingViewController.swift in Sources */,
+				12C1E850276C902E00AA28D6 /* AppFlowCoordinator.swift in Sources */,
 				12932028274B85A600FB8506 /* AnswerViewModel.swift in Sources */,
+				12C1E84E276C87AC00AA28D6 /* FlowCoordinator.swift in Sources */,
 				12905B13273C3837001F9053 /* assets.swift in Sources */,
 				12571A7C2705F51C00EF3039 /* Error.swift in Sources */,
 				12FAE7472701D16200A47323 /* AnswerViewController.swift in Sources */,
 				12FB54F527500A9100F80608 /* HistoryModel.swift in Sources */,
 				12FB54F727500B2300F80608 /* HistoryStorage.swift in Sources */,
+				12C1E852276C9F8500AA28D6 /* HistoryFlowCoordinator.swift in Sources */,
 				127914BD27393ECA00943F86 /* AnswerModel.swift in Sources */,
 				12905B14273C3837001F9053 /* strings.swift in Sources */,
+				12C1E854276C9F9900AA28D6 /* SettingsFlowCoordinator.swift in Sources */,
+				12C1E858276CC9C500AA28D6 /* IntroFlowCoordinator.swift in Sources */,
 				12F410D8274CD526008F0BB9 /* IntroViewController.swift in Sources */,
 				12A41715275C0B3E00A64087 /* UIViewExtensions.swift in Sources */,
+				12C1E84C276C863400AA28D6 /* NavigationNode.swift in Sources */,
 				12571A782704A53E00EF3039 /* HardcodedAnswers.swift in Sources */,
 				127914B927393E2400943F86 /* AnswerDownloader.swift in Sources */,
-				12F410DD274CDA67008F0BB9 /* TabBarController.swift in Sources */,
+				12C1E856276C9FA500AA28D6 /* AnswerFlowCoordinator.swift in Sources */,
 				12571A7227049B4800EF3039 /* Answer.swift in Sources */,
 				1293202C274B867D00FB8506 /* SettingViewModel.swift in Sources */,
 				12FAE7332701B74E00A47323 /* AppDelegate.swift in Sources */,

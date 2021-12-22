@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-final class AnswerModel {
+final class AnswerModel: NavigationNode {
     
     private let downloader: AnswerDownloaderProtocol
     private let storage: AnswerStorageProtocol
@@ -10,7 +10,8 @@ final class AnswerModel {
     
     var randomAnswer = PublishSubject<String>()
     
-    init(_ downloader: AnswerDownloaderProtocol = AnswerDownloader(),
+    init(parent: NavigationNode,
+         downloader: AnswerDownloaderProtocol = AnswerDownloader(),
          storage: AnswerStorageProtocol = AnswerStorage(),
          defaultAnswer: HardcodedAnswers = HardcodedAnswers(),
          history: HistoryStorage = HistoryStorage()) {
@@ -18,6 +19,8 @@ final class AnswerModel {
         self.storage = storage
         self.defaultAnswer = defaultAnswer
         self.history = history
+        
+        super.init(parent: parent)
     }
 
     func generateRandomAnswer() {

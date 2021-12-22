@@ -11,7 +11,9 @@ class HistoryViewController: UIViewController {
     private let viewModel: HistoryViewModel
     
     init?(_ viewModel: HistoryViewModel) {
+        
         self.viewModel = viewModel
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,12 +29,13 @@ class HistoryViewController: UIViewController {
         
         view.addSubview(tableView)
         
+        view.backgroundColor = .white
         navigationItem.title = L10n.history
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: Asset.newBlack.color]
         
         viewModel.loadInfo()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.frame = view.bounds
