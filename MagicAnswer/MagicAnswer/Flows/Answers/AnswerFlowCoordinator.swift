@@ -2,7 +2,7 @@ import UIKit
 
 final class AnswerFlowCoordinator: NavigationNode, FlowCoordinator{
     
-    var containerViewController: UIViewController?
+    weak var containerViewController: UIViewController?
     
     private let downloader: AnswerDownloaderProtocol
     private let storage: AnswerStorageProtocol

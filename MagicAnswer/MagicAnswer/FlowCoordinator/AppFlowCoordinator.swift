@@ -1,7 +1,7 @@
 import UIKit
 
-final class AppFlowCoordinator: NavigationNode, FlowCoordinator {
-    
+final class AppFlowCoordinator: NavigationNode {
+
     weak var containerViewController: UIViewController?
     
     private let downloader: AnswerDownloaderProtocol

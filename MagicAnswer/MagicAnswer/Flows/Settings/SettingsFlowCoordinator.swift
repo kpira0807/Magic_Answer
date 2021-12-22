@@ -2,7 +2,7 @@ import UIKit
 
 final class SettingsFlowCoordinator: NavigationNode, FlowCoordinator{
     
-    var containerViewController: UIViewController?
+    weak var containerViewController: UIViewController?
     
     private let answers: HardcodedAnswers
     private let storage: AnswerStorageProtocol

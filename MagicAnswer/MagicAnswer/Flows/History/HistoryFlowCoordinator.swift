@@ -2,7 +2,7 @@ import UIKit
 
 final class HistoryFlowCoordinator: NavigationNode, FlowCoordinator{
     
-    var containerViewController: UIViewController?
+    weak var containerViewController: UIViewController?
     private let storage: HistoryStorage
     
     init(parent: NavigationNode,

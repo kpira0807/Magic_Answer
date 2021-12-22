@@ -3,7 +3,7 @@ import UIKit
 
 final class IntroFlowCoordinator: NavigationNode, FlowCoordinator{
     
-    var containerViewController: UIViewController?
+    weak var containerViewController: UIViewController?
     
     init(parent: NavigationNode) {
         

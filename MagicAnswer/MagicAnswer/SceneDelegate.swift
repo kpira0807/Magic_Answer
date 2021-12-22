@@ -17,7 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let controller = appCoordinator.createFlow()
         appCoordinator.containerViewController = controller
-
         window?.windowScene = windowScene
         window?.rootViewController = controller
         window?.makeKeyAndVisible()
